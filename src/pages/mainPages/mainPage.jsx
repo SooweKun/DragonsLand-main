@@ -15,14 +15,16 @@ export const MainPage = () => {
 
     const check1 = data => {
         setShow(false);
-        setStore(store.push(data));
-        console.log(store);
+        setStore(prevStore => [...prevStore, data]);
 	};
 
-    const check2 = data => {
+    const check2 = (data) => {
+        console.log(store);
         console.log(data);
-        if(store[0] === data) {
-            console.log(store);
+        if(store[0].Name == data.Name) {
+            console.log('auth');
+        } else {
+            console.log('not authenticated');
         }
     };
 
@@ -30,36 +32,32 @@ export const MainPage = () => {
         setAuth(true);
         console.log('auth');
         setShow(false);
-    }
+    };
 
     const handleClick = () => {
         setShow(true);
-        setText(<AuthBtn
-            handleAuth={handleAuth}
-        />);
+        setText(<AuthBtn/>);
         console.log('reg');
-    }
+    };
 
     return (
         <div className="bg-main w-full h-[100vh] bg-center bg-no-repeat relative">
             <div className="max-w-[1520px] m-auto flex justify-center h-full">
-                <Header handleClick={handleClick} text={text} />
+                <Header handleClick={text.type.name === "RegBtn" ? handleClick : handleAuth}text={text} />
                 <div className="flex items-center">
-                    {show ===true && (
-                        <Registration 
+                    {show && (
+                        <Registration
                         setShow={setShow}
                         check1={check1}
                         />
                     )}
-                    {auth === true && (
+                    {auth && (
                         <Auth 
-                        
-                        
+                        check2={check2}
                         />
                     )}
-                    {/* <Auth check2={check2}/> */}
                 </div>
-            </div>      
+            </div>
             <div className="absolute bottom-0 w-full pb-[20px] pr-[50px] flex justify-end">
                 <Social />
             </div>
