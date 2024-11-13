@@ -15,7 +15,7 @@ export const Header = ({handleClick, text}) => {
             <div className="mt-[109px] flex bg-grays/[.40] w-[565px] h-[70px] items-center justify-center gap-12 rounded-lg ml-[200px]">
                 <Link to='/about' className="size-6 w-max">About</Link>
                 <Link to='/dragon' className="size-6 w-max">Dragons</Link>
-                <Link to='/grimuar' className="size-6 w-max">Books</Link>
+                <Link to='/grimuar' className="size-6 w-max"><b>Books </b></Link>
                 <Link to='/contact' className="size-6 w-max">Contact</Link>
             </div>
             <div className="flex items-center gap-[83px]">
