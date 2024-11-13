@@ -14,7 +14,11 @@
     "@tanstack/router-devtools": "^1.36.3",
     "@tanstack/router-vite-plugin": "^1.38.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-fs": "^0.0.0",
+    "react-hook-form": "^7.53.2",
+    "react-native-fs": "^2.20.0",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutmainImport } from './routes/_layoutmain'
-import { Route as MainIndexImport } from './routes/main/index'
+import { Route as mainIndexImport } from './routes/(main)/index'
 import { Route as LayoutmainGrimuarIndexImport } from './routes/_layoutmain/grimuar/index'
 import { Route as LayoutmainDragonIndexImport } from './routes/_layoutmain/dragon/index'
 import { Route as LayoutmainContactIndexImport } from './routes/_layoutmain/contact/index'
@@ -25,9 +25,9 @@ const LayoutmainRoute = LayoutmainImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const MainIndexRoute = MainIndexImport.update({
-  id: '/main/',
-  path: '/main/',
+const mainIndexRoute = mainIndexImport.update({
+  id: '/(main)/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -66,11 +66,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutmainImport
       parentRoute: typeof rootRoute
     }
-    '/main/': {
-      id: '/main/'
-      path: '/main'
-      fullPath: '/main'
-      preLoaderRoute: typeof MainIndexImport
+    '/(main)/': {
+      id: '/(main)/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof mainIndexImport
       parentRoute: typeof rootRoute
     }
     '/_layoutmain/about/': {
@@ -126,7 +126,7 @@ const LayoutmainRouteWithChildren = LayoutmainRoute._addFileChildren(
 
 export interface FileRoutesByFullPath {
   '': typeof LayoutmainRouteWithChildren
-  '/main': typeof MainIndexRoute
+  '/': typeof mainIndexRoute
   '/about': typeof LayoutmainAboutIndexRoute
   '/contact': typeof LayoutmainContactIndexRoute
   '/dragon': typeof LayoutmainDragonIndexRoute
@@ -135,7 +135,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '': typeof LayoutmainRouteWithChildren
-  '/main': typeof MainIndexRoute
+  '/': typeof mainIndexRoute
   '/about': typeof LayoutmainAboutIndexRoute
   '/contact': typeof LayoutmainContactIndexRoute
   '/dragon': typeof LayoutmainDragonIndexRoute
@@ -145,7 +145,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_layoutmain': typeof LayoutmainRouteWithChildren
-  '/main/': typeof MainIndexRoute
+  '/(main)/': typeof mainIndexRoute
   '/_layoutmain/about/': typeof LayoutmainAboutIndexRoute
   '/_layoutmain/contact/': typeof LayoutmainContactIndexRoute
   '/_layoutmain/dragon/': typeof LayoutmainDragonIndexRoute
@@ -154,13 +154,13 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/main' | '/about' | '/contact' | '/dragon' | '/grimuar'
+  fullPaths: '' | '/' | '/about' | '/contact' | '/dragon' | '/grimuar'
   fileRoutesByTo: FileRoutesByTo
-  to: '' | '/main' | '/about' | '/contact' | '/dragon' | '/grimuar'
+  to: '' | '/' | '/about' | '/contact' | '/dragon' | '/grimuar'
   id:
     | '__root__'
     | '/_layoutmain'
-    | '/main/'
+    | '/(main)/'
     | '/_layoutmain/about/'
     | '/_layoutmain/contact/'
     | '/_layoutmain/dragon/'
@@ -170,12 +170,12 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   LayoutmainRoute: typeof LayoutmainRouteWithChildren
-  MainIndexRoute: typeof MainIndexRoute
+  mainIndexRoute: typeof mainIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   LayoutmainRoute: LayoutmainRouteWithChildren,
-  MainIndexRoute: MainIndexRoute,
+  mainIndexRoute: mainIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -189,7 +189,7 @@ export const routeTree = rootRoute
       "filePath": "__root.jsx",
       "children": [
         "/_layoutmain",
-        "/main/"
+        "/(main)/"
       ]
     },
     "/_layoutmain": {
@@ -201,8 +201,8 @@ export const routeTree = rootRoute
         "/_layoutmain/grimuar/"
       ]
     },
-    "/main/": {
-      "filePath": "main/index.jsx"
+    "/(main)/": {
+      "filePath": "(main)/index.jsx"
     },
     "/_layoutmain/about/": {
       "filePath": "_layoutmain/about/index.jsx",
