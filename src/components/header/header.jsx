@@ -13,10 +13,10 @@ export const Header = ({handleClick, text}) => {
                 <Link to='/main'>DragonsLand</Link>
             </div>
             <div className="mt-[109px] flex bg-grays/[.40] w-[565px] h-[70px] items-center justify-center gap-12 rounded-lg ml-[200px]">
-                <Link to='/about' className="size-6 w-max">About</Link>
-                <Link to='/dragon' className="size-6 w-max">Dragons</Link>
+                <Link to='/about' className="size-6 w-max"><b>About</b></Link>
+                <Link to='/dragon' className="size-6 w-max"><b>Dragons</b></Link>
                 <Link to='/grimuar' className="size-6 w-max"><b>Books </b></Link>
-                <Link to='/contact' className="size-6 w-max">Contact</Link>
+                <Link to='/contact' className="size-6 w-max"><b>Contact</b></Link>
             </div>
             <div className="flex items-center gap-[83px]">
                 <p className="size-[23px] w-max cursor-pointer" onClick={handleClick}>{text}</p>
