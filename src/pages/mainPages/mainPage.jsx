@@ -21,8 +21,9 @@ export const MainPage = () => {
     const check2 = (data) => {
         console.log(store);
         console.log(data);
-        if(store[0].Name == data.Name) {
+        if(store[0].Name == data.Name && store[0].Password == data.Password) {
             console.log('auth');
+            setAuth(false);
         } else {
             console.log('not authenticated');
         }

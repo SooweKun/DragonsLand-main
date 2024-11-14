@@ -7,7 +7,7 @@ export const Header = ({handleClick, text}) => {
         <div className="flex justify-between absolute z-10  left-1/2 transform -translate-x-1/2 w-full px-[200px]">
             <div className="flex items-center gap-[23px] mt-[41px] h-max">
                 <div className="w-[64px] h-[64px] bg-grays content-center justify-center flex rounded-full">
-                <img src="./src/assets/person_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="not found" className="w-7"/>
+                <img src="./src/assets/logo.svg" alt="not found" className="w-[64px] h-[64px]"/>
                 </div>
                 <Link to='/'><b>DragonsLand</b></Link>
             </div>
